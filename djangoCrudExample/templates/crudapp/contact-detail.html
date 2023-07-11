@@ -1,0 +1,49 @@
+{% extends 'crudapp/base.html' %}
+{% block content %}
+<div class="main">
+
+    <!-- Specify fields to be displayed -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 ">
+                <div class="card" style="margin-top: 100px;">
+                    <div class="card-body">
+                        <h1>DETAIL CONTACT</h1>
+                        <p>FirstName : {{ data.firstName }}</p>
+                        <p>lastName : {{ data.lastName }}</p>
+                        <p>email : {{ data.email }}</p>
+                        <p>phone : {{ data.phone }}</p>
+                        <p>address : {{ data.address }}</p>
+                        <p>description : {{ data.description }}</p>
+                        <p>createdAt : {{ data.createdAt }}</p>
+                        <hr>
+                        <p>QUERY SELECT : {{ res_limit.firstName }} - {{ res_limit.lastName }}</p>
+                        <hr>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>no</th>
+                                    <th>Nama</th>
+                                    <th>Jabatan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for d in dataku %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{d.nama}}</td>
+                                    <td>{{d.jabatan}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <a href="{% url 'index' %}" class="btn btn-primary">back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
